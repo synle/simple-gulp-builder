@@ -5,7 +5,7 @@ Simple gulp job that eases out issue with your gulp build.
 ## To install
 ```
 github style
-npm install --save-dev git+https://git@github.com:synle/simple-gulp-builder.git
+npm install --save-dev synle/simple-gulp-builder
 ```
 
 
@@ -56,7 +56,7 @@ var simpleGulpBuilder = require('simple-gulp-builder');
 //config
 //paths
 var DEST_PATH = 'public';
-var STYLES_CONFIG = [ 'src/css/index.scss' ];
+var STYLES_CONFIG = [ 'src/style/index.scss' ];
 var VIEWS_PAGE_CONFIG = [ 'src/html/index.html' ];
 var JS_CONFIG  = [ 'src/js/index.js' ];
 //config for transformation
@@ -68,7 +68,9 @@ var ALIASIFY_CONFIG =  {
       "@src/(\\w+)": "./src/js/$1"
     }
 };
-var BABELIFY_CONFIG = { presets: [ "es2015" ] };
+
+//var BABELIFY_CONFIG = { presets: [ "es2015" ] };
+var BABELIFY_CONFIG = {};
 
 //styles
 gulp.task('styles', simpleGulpBuilder.compileStyles( STYLES_CONFIG, DEST_PATH ) );
