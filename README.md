@@ -68,8 +68,8 @@ var ALIASIFY_CONFIG =  {
     }
 };
 
-//var BABELIFY_CONFIG = { presets: [ "es2015" ] };
-var BABELIFY_CONFIG = {};
+var BABELIFY_CONFIG = { presets: [ "es2016" ] };
+//var BABELIFY_CONFIG = {};//use this for no babelify
 
 //styles
 gulp.task('styles', simpleGulpBuilder.compileStyles( STYLES_CONFIG, DEST_PATH ) );
