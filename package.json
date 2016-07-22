@@ -1,6 +1,6 @@
 {
   "name": "simple-gulp-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Make building simple things like sass, es6 and browserify a lot easier",
   "main": "index.js",
   "scripts": {
