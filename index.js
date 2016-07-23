@@ -58,6 +58,14 @@ function _copyFile( src, destination ){
 	};
 }
 
+function _concatFiles( src, destination, bundledName ){
+	return function(){
+		return gulp.src( src )
+	        .pipe( concat(bundledName) )
+	        .pipe( _getPathAsGulpConfig( destination ) );
+    }
+}
+
 //get gulp dest regardless if inpgut is string or gulp dest object
 function _getPathAsGulpConfig( path ){
 	return _.isString( path ) ? gulp.dest( path ) : path;
@@ -66,5 +74,6 @@ function _getPathAsGulpConfig( path ){
 module.exports = {
 	compileStyles : _compileStyles,
 	compileJs : _compileJs,
-	copyFile : _copyFile
+	copyFile : _copyFile,
+	concatFiles : _concatFiles
 }
