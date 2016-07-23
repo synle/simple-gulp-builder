@@ -74,13 +74,13 @@ var ALIASIFY_CONFIG =  {
 var BABELIFY_CONFIG = { presets: [ "es2015" ] };// or use {} if no babelify
 
 //styles
-gulp.task('styles', simpleGulpBuilder.compileStyles( STYLES_CONFIG, DEST_PATH ) );
+gulp.task('styles', simpleGulpBuilder.compileStyles( STYLES_CONFIG, DEST_PATH, 'app.css' ) );
 
 //views
 gulp.task('views',  simpleGulpBuilder.copyFile( VIEWS_PAGE_CONFIG, DEST_PATH ));
 
 //js
-gulp.task('js', simpleGulpBuilder.compileJs( JS_CONFIG, DEST_PATH, BABELIFY_CONFIG, ALIASIFY_CONFIG ));
+gulp.task('js', simpleGulpBuilder.compileJs( JS_CONFIG, DEST_PATH, 'app.js', BABELIFY_CONFIG, ALIASIFY_CONFIG ));
 
 //Watch task
 gulp.task('watch',function() {
