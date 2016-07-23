@@ -28,19 +28,10 @@ function _compileJs( jsPath, destination, babelifyConfig, aliasifyConfig, ignore
 		var browserifyJsPipe = browserify( {
 				entries: jsPath,
 				debug: true
-			});
-			
-		if(babelifyConfig && _.size(babelifyConfig) > 0){
-			browserifyJsPipe = browserifyJsPipe.transform(babelify, babelifyConfig)
-		}
-		
-		if(aliasifyConfig && _.size(aliasifyConfig) > 0){
-			browserifyJsPipe = browserifyJsPipe.transform(aliasify, aliasifyConfig)
-		}
-			
-			
-		//bundled it up
-		browserifyJsPipe.bundle()
+			})
+			.transform(babelify, _.size(babelifyConfig) > 0 ? babelifyConfig : {})
+			.transform(aliasify, _.size(aliasifyConfig) > 0 ? aliasifyConfig : {}))//aliasify config
+			.bundle()
 			.pipe( source( bundledName ) );
 
 		if( ignoreSourceMap !== true){
@@ -76,4 +67,3 @@ module.exports = {
 	compileJs : _compileJs,
 	copyFile : _copyFile
 }
-
