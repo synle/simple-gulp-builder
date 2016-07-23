@@ -5,6 +5,9 @@ Simple gulp job that eases out issue with your gulp build.
 ## To install
 ```
 npm install --save-dev synle/simple-gulp-builder
+
+#if you use babel and es 2015
+npm install --save-dev babel-preset-es2016
 ```
 
 
