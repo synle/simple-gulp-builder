@@ -12,18 +12,19 @@ var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var gutil = require('gulp-util');
+var concat = require('gulp-concat');
 
 //compile styles
-function _compileStyles( sytlePath, destination ){
+function _compileStyles( sytlePath, destination, bundledName ){
 	return function(){
 		return gulp.src( sytlePath )
 	        .pipe( sass().on('error', sass.logError) )
+	        .pipe( concat(bundledName) )
 	        .pipe( _getPathAsGulpConfig( destination ) );
     }
 }
 
-function _compileJs( jsPath, destination, babelifyConfig, aliasifyConfig, ignoreSourceMap ) {
-	var bundledName = 'index.js';
+function _compileJs( jsPath, destination, bundledName, babelifyConfig, aliasifyConfig, ignoreSourceMap ) {
 	return function(){
 		var browserifyJsPipe = browserify( {
 				entries: jsPath,
