@@ -35,7 +35,7 @@ function _compileJs( jsPath, destination, babelifyConfig, aliasifyConfig, ignore
 		}
 		
 		if(aliasifyConfig && _.size(aliasifyConfig) > 0){
-			browserifyJsPipe = .transform(aliasify, aliasifyConfig)
+			browserifyJsPipe = browserifyJsPipe.transform(aliasify, aliasifyConfig)
 		}
 			
 			
