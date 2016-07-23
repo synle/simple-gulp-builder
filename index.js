@@ -28,10 +28,19 @@ function _compileJs( jsPath, destination, babelifyConfig, aliasifyConfig, ignore
 		var browserifyJsPipe = browserify( {
 				entries: jsPath,
 				debug: true
-			})
-			.transform(babelify, babelifyConfig)//default {presets: ["es2015"]}
-			.transform(aliasify, aliasifyConfig)//aliasify config
-			.bundle()
+			});
+			
+		if(babelifyConfig && _.size(babelifyConfig) > 0){
+			browserifyJsPipe = browserifyJsPipe.transform(babelify, babelifyConfig)
+		}
+		
+		if(aliasifyConfig && _.size(aliasifyConfig) > 0){
+			browserifyJsPipe = .transform(aliasify, aliasifyConfig)
+		}
+			
+			
+		//bundled it up
+		browserifyJsPipe.bundle()
 			.pipe( source( bundledName ) );
 
 		if( ignoreSourceMap !== true){
