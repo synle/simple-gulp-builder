@@ -7,7 +7,7 @@ Simple gulp job that eases out issue with your gulp build.
 npm install --save-dev synle/simple-gulp-builder
 
 #if you use babel and es 2015
-npm install --save-dev babel-preset-es2016
+npm install --save-dev babel-preset-es2015
 ```
 
 
@@ -71,8 +71,7 @@ var ALIASIFY_CONFIG =  {
     }
 };
 
-var BABELIFY_CONFIG = { presets: [ "es2016" ] };
-//var BABELIFY_CONFIG = {};//use this for no babelify
+var BABELIFY_CONFIG = { presets: [ "es2015" ] };// or use {} if no babelify
 
 //styles
 gulp.task('styles', simpleGulpBuilder.compileStyles( STYLES_CONFIG, DEST_PATH ) );
