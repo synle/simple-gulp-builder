@@ -30,7 +30,7 @@ function _compileJs( jsPath, destination, babelifyConfig, aliasifyConfig, ignore
 				debug: true
 			})
 			.transform(babelify, _.size(babelifyConfig) > 0 ? babelifyConfig : {})
-			.transform(aliasify, _.size(aliasifyConfig) > 0 ? aliasifyConfig : {}))//aliasify config
+			.transform(aliasify, _.size(aliasifyConfig) > 0 ? aliasifyConfig : {})//aliasify config
 			.bundle()
 			.pipe( source( bundledName ) );
 
