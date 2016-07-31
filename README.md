@@ -4,7 +4,7 @@ Simple gulp job that eases out issue with your gulp build.
 
 ## To install
 ```
-npm install --save-dev synle/simple-gulp-builder
+npm install --save-dev simple-gulp-builder
 ```
 
 
