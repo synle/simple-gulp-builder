@@ -6,9 +6,8 @@ Simple gulp job that eases out issue with your gulp build.
 ```
 npm i --save-dev simple-gulp-builder
 
----
+# if you run into issues with npm and gulp, try to install the following dependencies
 
-if you run into issues with npm and gulp, try to install the following dependencies
 npm i --save-dev gulp-util babel-preset-es2015
 ```
 
