@@ -8,6 +8,12 @@ npm install --save-dev simple-gulp-builder
 ```
 
 
+## To get sample Gulp.js file in your repo
+```
+curl -so https://raw.githubusercontent.com/synle/simple-gulp-builder/master/Gulp.js.sample > Gulpfile.js
+```
+
+
 ## Note for import and require paths
 ```
 There are 2 ways to import:
