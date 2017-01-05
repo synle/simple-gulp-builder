@@ -91,6 +91,19 @@ gulp.task('views',  simpleGulpBuilder.copyFile( VIEWS_PAGE_CONFIG, DEST_PATH ));
 //js
 gulp.task('js', simpleGulpBuilder.compileJs( JS_CONFIG, DEST_PATH, 'app.js', BABELIFY_CONFIG, ALIASIFY_CONFIG ));
 
+
+//string replacement
+gulp.task(
+    'apply-env',
+    simpleGulpBuilder.replaceString(
+        'manifest.template',
+        './public',
+        'manifest.xml',
+        ['$ENV', 'prod']
+    )
+);
+
+
 //Watch task
 gulp.task('watch',function() {
 	return gulp.watch(
